@@ -1,0 +1,234 @@
+@use "./variables" as vars;
+
+.header {
+    color: vars.$color-white;
+    font-size: 1.6rem;
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    &__logo img { height: 40px; }
+}
+
+
+.header__top {
+    height: 35px;
+    display: flex;
+    font-size: 1.4rem;
+    background-color: vars.$color-dark;
+}
+
+.header__middle {
+    display: flex;
+    background-color: vars.$color-primary;
+    height: 80px;
+
+    .container {
+        gap: 50px;
+    }
+}
+
+.header__bottom {
+    display: flex;
+    height: 60px;
+    background-color: vars.$color-accent;
+    box-shadow: 0px 4px 5px -4px grey;
+
+    .container {
+        gap: 40px;
+    }
+
+    .secondary-menu {
+        gap: 40px;
+
+        a {
+            &:hover {
+                color: vars.$color-primary;
+            }
+        }
+    }
+}
+
+
+.header__menu {
+    display: flex;
+    gap: 100px;
+
+    @media (max-width: vars.$bp-to-tablet) { display: none; }
+
+    * {
+        white-space: nowrap;
+    }
+
+    a {
+        &:hover {
+            color: vars.$color-accent;
+        }
+    }
+}
+
+.header__middle-right-nav {
+    display: flex;
+    gap: 40px;
+
+    @media (max-width: vars.$bp-to-tablet) { display: none; }
+    
+    .login {
+        color: vars.$color-accent;
+    }
+}
+
+
+.header__catalog-btn {
+    white-space: nowrap;
+    background-color: transparent;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+    
+    @media (max-width: vars.$bp-to-tablet) {
+        display: none;
+    }
+}
+
+.header__catalog-wrapper {
+    position: relative;
+}
+
+.header__catalog-nav {
+    display: none;
+    position: absolute;
+    top: 40px;
+    z-index: 100;
+    width: 300px;
+    color: vars.$color-primary;
+
+    &[open="true"] {
+        display: block;
+    }
+}
+
+.product-search {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    border: solid vars.$color-search-border 1px;
+    border-radius: 8px;
+    overflow: hidden;
+
+    input {
+        width: 100%;
+        height: 3rem;
+        border: none;
+        padding: 10px;
+
+        &::placeholder {
+            color: vars.$color-search-text;
+            font-size: 1.4rem;
+            font-weight: 400;
+        }
+
+        &:focus {
+            border-color: vars.$color-accent;
+            outline: none;
+        }
+
+        &::-webkit-search-cancel-button {
+            -webkit-appearance: none;
+            appearance: none;
+        }
+    }
+
+    button {
+        cursor: pointer;
+        display: flex;
+        text-decoration: none;
+        width: 40px;
+        padding: 0;
+        background-color: vars.$color-white;
+        
+        border: none;
+
+        span {
+            margin: auto;
+            color: vars.$color-accent;
+        }
+    }
+}
+
+.header__nav-buttons {
+    display: flex;
+    gap: 40px;
+
+    button {
+        display: flex;
+        color: inherit;
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+    }
+    
+    &--mobile {
+        display: none;
+    }
+
+    @media (max-width: vars.$bp-to-tablet) {
+        &--desktop {
+            display: none;
+        }
+
+        &--mobile {
+            display: flex;
+        }
+    }
+}
+
+
+
+
+.burger-menu-btn {
+    position: relative;
+    align-items: center;
+    width: 20px;
+
+    span {
+        position: absolute;
+        height: 2px;
+        width: 20px;
+        background-color: vars.$color-white;
+        transition: transform 0.5s, opacity 0.5s;
+
+        &:nth-child(1) {
+            transform: translateY(-8px);
+        }
+
+        &:nth-child(3) {
+            transform: translateY(8px);
+        }
+
+    }
+
+    &[active="true"] span {
+        &:nth-child(1) {
+            transform: translateY(0) rotate(45deg);
+        }
+
+        &:nth-child(2) {
+            opacity: 0;
+        }
+
+        &:nth-child(3) {
+            transform: translateY(0) rotate(-45deg);
+        }
+    }
+
+}

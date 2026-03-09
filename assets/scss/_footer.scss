@@ -1,0 +1,72 @@
+@use "./variables" as vars;
+
+.footer-main {
+    padding: 80px 0;
+    background-color: vars.$color-primary;
+    color: vars.$color-white;
+    padding-top: 140px;
+    padding-bottom: 65px;
+    font-size: 1.8rem;
+    line-height: 2;
+    
+    .container {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        column-gap: 30px;
+    }
+    
+    .footer-logo {
+        display: block;
+        margin-bottom: 33px;
+
+        img { height: 40px; }
+    }
+
+    .footer-list-title {
+        font-size: 3rem;
+        margin-bottom: 33px;
+        padding-left: 40px;
+        line-height: 40px;
+    }
+
+    ul {
+        border-left: solid vars.$color-sub-text 1px;
+        padding-left: 40px;
+    }
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    border-left: solid vars.$color-sub-text 1px;
+    padding-left: 40px;
+
+    a {
+        text-decoration: underline;
+    }
+
+    .contact-elem {
+        width: 200px;
+
+        .contact-title {
+            display: flex;
+            margin-bottom: 10px;
+            gap: 14px;
+            color: vars.$color-sub-text;
+
+            .contact-icon {
+                display: flex;
+                align-items: center;
+                color: vars.$color-white;
+            }
+        }
+    }
+}
+
+.footer-copyright {
+    align-content: center;
+    height: 80px;
+    background-color: vars.$color-black;
+    color: vars.$color-sub-text;
+}
