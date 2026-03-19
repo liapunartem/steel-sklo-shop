@@ -24,9 +24,10 @@
     }
 
     @media (max-width: vars.$bp-to-mobile) {
-        height: 30px;
+        min-height: 30px;
         font-size: 1.4rem;
         border-radius: 3px;
+        padding: 8px;
     }
 
     &--alt {

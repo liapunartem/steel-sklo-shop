@@ -2,7 +2,7 @@
 Theme Name: Steel Sklo Shop
 
 Author:     Artem Liapun
-Version:    0.0.1
+Version:    0.0.22
 */
 /* ==== RESET START ==== */
 h1, h2, h3, h4, h5, h6, p, ul, ol {
@@ -48,6 +48,11 @@ body {
   line-height: 1.5;
   color: #303030;
   background-color: #ffffff;
+}
+@media (max-width: 576px) {
+  body {
+    font-size: 1.4rem;
+  }
 }
 
 .container {
@@ -130,9 +135,10 @@ h1 {
 }
 @media (max-width: 576px) {
   .button, .btn {
-    height: 30px;
+    min-height: 30px;
     font-size: 1.4rem;
     border-radius: 3px;
+    padding: 8px;
   }
 }
 .button--alt, .btn--alt {
@@ -147,9 +153,22 @@ h1 {
 
 .catalog-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 40px;
   margin-top: 20px;
+  margin-bottom: 60px;
+}
+@media (max-width: 1024px) {
+  .catalog-grid {
+    gap: 25px;
+  }
+}
+@media (max-width: 576px) {
+  .catalog-grid {
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 20px;
+    gap: 10px;
+  }
 }
 
 .header {
@@ -255,9 +274,10 @@ h1 {
 }
 @media (max-width: 576px) {
   .header__catalog-btn {
-    height: 30px;
+    min-height: 30px;
     font-size: 1.4rem;
     border-radius: 3px;
+    padding: 8px;
   }
 }
 .header__catalog-btn--alt {
@@ -620,9 +640,10 @@ h1 {
 }
 @media (max-width: 576px) and (max-width: 576px) {
   .footer__catalog-title {
-    height: 30px;
+    min-height: 30px;
     font-size: 1.4rem;
     border-radius: 3px;
+    padding: 8px;
   }
 }
 @media (max-width: 576px) {
@@ -690,6 +711,11 @@ h1 {
     height: 200px;
   }
 }
+@media (max-width: 576px) {
+  .category-card {
+    height: 160px;
+  }
+}
 .category-card img {
   height: 100%;
   width: 100%;
@@ -746,12 +772,14 @@ h1 {
 .product-card__image-wrapper {
   position: relative;
 }
-.product-card__image-wrapper a, .product-card__image-wrapper img {
+.product-card__image-wrapper a {
   display: block;
-  width: 100%;
-  height: 200px;
+  height: 100%;
 }
 .product-card__image-wrapper img {
+  display: block;
+  width: 100%;
+  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -802,6 +830,20 @@ h1 {
 }
 .product-card__rating .material-symbols.empty {
   color: #e6e6e6;
+}
+@media (max-width: 576px) {
+  .product-card__image-wrapper a, .product-card img {
+    height: 130px;
+  }
+  .product-card__body {
+    padding: 10px;
+  }
+  .product-card__title {
+    font-size: 1.4rem;
+  }
+  .product-card__price {
+    font-size: 1.6rem;
+  }
 }
 
 .swiper-wrapper {
@@ -992,27 +1034,16 @@ h1 {
   }
 }
 
-.popular-categories, .new-products {
+.popular-categories {
   margin-top: 50px;
 }
-
 .popular-categories__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr 1fr;
   gap: 40px;
 }
 .popular-categories__grid > :nth-child(n+5) {
   display: none;
-}
-@media (max-width: 1024px) {
-  .popular-categories__grid {
-    gap: 25px;
-  }
-}
-@media (max-width: 576px) {
-  .popular-categories__grid {
-    gap: 16px;
-  }
 }
 .popular-categories__show-more-link {
   display: flex;
@@ -1026,7 +1057,16 @@ h1 {
   text-decoration: none;
 }
 @media (max-width: 1024px) {
+  .popular-categories {
+    margin-top: 30px;
+  }
+  .popular-categories__grid {
+    gap: 25px;
+  }
   .popular-categories__show-more-link {
+    margin-top: 15px;
+  }
+  .popular-categories__show-more-link a {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1043,32 +1083,50 @@ h1 {
     color: #ffffff;
     background: #11A2BD;
   }
-  .popular-categories__show-more-link:hover {
+  .popular-categories__show-more-link a:hover {
     background: #0089ab;
     border-color: #0089ab;
   }
-  .popular-categories__show-more-link {
-    color: #ffffff;
-  }
 }
 @media (max-width: 1024px) and (max-width: 576px) {
-  .popular-categories__show-more-link {
-    height: 30px;
+  .popular-categories__show-more-link a {
+    min-height: 30px;
     font-size: 1.4rem;
     border-radius: 3px;
+    padding: 8px;
   }
 }
 @media (max-width: 1024px) {
-  .popular-categories__show-more-link--alt {
+  .popular-categories__show-more-link a--alt {
     color: #11A2BD;
     background: #ffffff;
     border: solid #11A2BD 1px;
   }
-  .popular-categories__show-more-link--alt:hover {
+  .popular-categories__show-more-link a--alt:hover {
     color: #ffffff;
     background: #11A2BD;
   }
-  .popular-categories__show-more-link span {
+  .popular-categories__show-more-link .material-symbols {
     display: none;
+  }
+}
+@media (max-width: 576px) {
+  .popular-categories__grid {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .popular-products {
+    margin-top: 30px;
+  }
+}
+
+.new-products {
+  margin-top: 50px;
+}
+@media (max-width: 1024px) {
+  .new-products {
+    margin-top: 30px;
   }
 }/*# sourceMappingURL=style.css.map */

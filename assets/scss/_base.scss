@@ -50,6 +50,10 @@ body {
     line-height: 1.5;
     color: vars.$color-primary;
     background-color: vars.$color-white;
+
+    @media (max-width: vars.$bp-to-mobile) {
+        font-size: 1.4rem;
+    }
 }
 
 .container {
@@ -120,7 +124,18 @@ h1 {
 
 .catalog-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 40px;
     margin-top: 20px;
+    margin-bottom: 60px;
+
+    @media (max-width: vars.$bp-to-tablet) {
+        gap: 25px;
+    }
+
+    @media (max-width: vars.$bp-to-mobile) {
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: 20px;
+        gap: 10px;
+    }
 }

@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Product carousel
 const productSlider = new Swiper(".product-carousel", {
-    slidesPerView: 4.2,
+    slidesPerView: 2.2,
     spaceBetween: 20,
     loop: false, // вимкнено
     pagination: {
@@ -35,7 +35,7 @@ const productSlider = new Swiper(".product-carousel", {
     breakpoints: {
         320: {
         slidesPerView: 2.2,
-        spaceBetween: 12,
+        spaceBetween: 8,
         },
         768: {
         slidesPerView: 3.2,
