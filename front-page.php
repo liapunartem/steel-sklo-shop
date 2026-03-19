@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <main>
-    <div class="home-content-top container">
+    <div class="homepage-top container grid-with-sidebar">
         <!-- Sidebar -->
         <aside class="sidebar">
             <?php do_action( 'steel_dropdown_catalog' ) ?>
@@ -18,7 +18,7 @@
                 <div class="popular-categories__grid">
                     <?php do_action(
                         'steel_category_cards', 
-                        [ 'music', 'clothing', 'tshirts', 'decor' ]
+                        [ 'music', 'clothing', 'tshirts', 'decor', 'avtomobilnye_boksy', 'boksy_dlina_100_165_sm' ]
                     ); ?>
                 </div>
                 <footer class="popular-categories__show-more-link">

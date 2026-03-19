@@ -1,151 +1,11 @@
 @use "./variables" as vars;
+@use "./mixins";
 
-.home-content-top {
-    display: grid;
-    grid-template-columns: 300px calc(100% - 350px);
-    gap: 50px;
+.homepage-top {
     margin-top: vars.$side-margins-tablet;
-
-    @media (max-width: vars.$bp-to-tablet) {
-        display: block;
-    }
 
     @media (max-width: vars.$bp-to-mobile) {
         margin-top: vars.$side-margins-mobile;
-    }
-
-    .sidebar {
-        position: sticky;
-        z-index: 10;
-        top: 40px;
-        height: fit-content;
-
-        @media (max-width: vars.$bp-to-tablet) {
-            display: none;
-        }
-    }
-}
-
-// // 
-// .catalog {
-//     width: 100%;
-//     border: 1px solid #ddd;
-//     border-radius: 6px;
-//     overflow: hidden;
-
-//     &__item {
-//         border-bottom: 1px solid #e5e5e5;
-
-//         &:last-child {
-//             border-bottom: none;
-//         }
-//     }
-
-//     &__summary {
-//         cursor: pointer;
-//         padding: 14px 16px;
-//         display: flex;
-//         justify-content: space-between;
-//         align-items: center;
-//         list-style: none;
-//         font-size: 1rem;
-        
-//         // Прибираємо стандартний маркер summary
-//         &::-webkit-details-marker {
-//             display: none;
-//         }
-//     }
-
-//     &__title {
-//         font-weight: 500;
-//     }
-
-//     &__icon {
-//         width: 10px;
-//         height: 10px;
-//         border-right: 2px solid #555;
-//         border-bottom: 2px solid #555;
-//         transform: rotate(45deg);
-//         transition: transform .2s ease;
-//     }
-
-//     // Поворот іконки коли розкрито
-//     &__item[open] .catalog__icon {
-//         transform: rotate(-135deg);
-//     }
-
-//     &__sublist {
-//         padding: 0;
-//         margin: 0;
-//         list-style: none;
-//         background: #fafafa;
-//         border-top: 1px solid #e5e5e5;
-//     }
-
-//     &__subitem {
-//         border-bottom: 1px solid #eee;
-
-//         &:last-child {
-//             border-bottom: none;
-//         }
-//     }
-
-//     &__link {
-//         display: block;
-//         padding: 10px 20px;
-//         color: #333;
-//         text-decoration: none;
-//         transition: background .15s ease;
-
-//         &:hover {
-//             background: #f0f0f0;
-//         }
-//     }
-// }
-// // 
-.dropdown-catalog {
-    background-color: vars.$color-white;
-    border-radius: 10px;
-    position: relative;
-
-    &:hover {
-        box-shadow: 0px 8px 35px -24px #212529;
-    }
-
-    &__item {
-        &:hover {
-            .dropdown-catalog__sublist {
-                opacity: 1;
-                pointer-events: auto;
-            }
-        }
-    }
-
-    &__link {
-        display: flex;
-        align-items: center;
-        padding: 8px 12px 8px 8px;
-    }
-
-    &__sublist {
-        position: absolute;
-        top: 0;
-        z-index: -1;
-        width: 300px;
-        height: 100%;
-        background-color: vars.$color-white;
-        border-radius: 10px;
-        transform: translateX(300px);
-        transition: opacity 0.3s ease;
-        
-        opacity: 0;
-        pointer-events: none;
-
-        &:hover {
-            opacity: 1;
-            pointer-events: auto;
-            box-shadow: 0px 8px 35px -24px #212529;
-        }
     }
 }
 
@@ -159,6 +19,14 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 40px;
 
+        & > :nth-child(n+5) {
+            display: none;
+        }
+
+        @media (max-width: vars.$bp-to-tablet) {
+            gap: 25px;
+        }
+
         @media (max-width: vars.$bp-to-mobile) {
             gap: 16px;
         }
@@ -168,12 +36,23 @@
         display: flex;
         justify-content: center;
         margin-top: 15px;
+        color: #929292;
 
         a {
             display: grid;
             text-align: center;
-            color: #929292;
             text-decoration: none;
+        }
+
+        @media (max-width: vars.$bp-to-tablet) {
+            @include mixins.button;
+
+            color: vars.$color-white;
+
+            span {
+                display: none;
+            }
+
         }
     }
 

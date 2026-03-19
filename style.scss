@@ -6,6 +6,7 @@ Version:    0.0.1
 */
 
 @use "./assets/scss/variables";
+@use "./assets/scss/mixins";
 @use "./assets/scss/base";
 
 @use "./assets/scss/header";
@@ -14,5 +15,6 @@ Version:    0.0.1
 @use "./assets/scss/cards";
 @use "./assets/scss/swiper";
 @use "./assets/scss/offcanvas";
+@use "./assets/scss/sidebar";
 
 @use "./assets/scss/front-page";

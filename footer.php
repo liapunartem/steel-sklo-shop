@@ -4,25 +4,32 @@
 	<?php do_action( 'storefront_before_footer' ); ?>
 
 	<!-- START FOOTER -->
-	<footer role="contentinfo">
-		<div class="footer-main">
-			<div class="container">
-            	<div>
-					<?php do_action( 'steel_footer_left' ); ?>
+	<footer class="footer">
+		<div class="footer__main">
+			<div class="footer__logo-mobile-wrapper">
+				<div class="container">
+					<?php do_action( 'steel_footer_logo_mobile' ); ?>
 				</div>
-				<div>
-					<div class="footer-list-title">Каталог</div>
-					<?php do_action( 'steel_footer_center' ); ?>
+			</div>
+			<div class="container footer__grid">
+            	<div class="footer__page-nav">
+					<?php do_action( 'steel_footer_page_nav' ); ?>
 				</div>
-				<div>
-					<div class="footer-list-title">Контакти</div>
-					<div class="contact-grid">
-						<?php do_action( 'steel_footer_contact_elem' ); ?>
+				<div class="footer__catalog">
+					<div class="footer__list-title footer__catalog-title">
+						Каталог <span class="material-symbols">stat_minus_1</span>
+					</div>
+					<?php do_action( 'steel_footer_catalog' ); ?>
+				</div>
+				<div class="footer__contact">
+					<div class="footer__list-title">Контакти</div>
+					<div class="footer__contact-grid">
+						<?php do_action( 'steel_footer_contact' ); ?>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="footer-copyright">
+		<div class="footer__copyright">
 			<div class="container">
 				© Усі права захищено. 2025р
 			</div>

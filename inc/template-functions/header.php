@@ -2,18 +2,6 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Displays the header logo
- */
-function steel_header_logo() {
-    ?>  
-        <a class="logo header__logo" href="<?php echo esc_url( home_url() ); ?>">
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo.png" 
-                alt="Steel Sklo Shop">
-        </a>
-    <?php
-}
-
-/**
  * Displays the header menu
  */
 function steel_header_menu() {
@@ -79,8 +67,10 @@ function steel_catalog_btn() {
     ?>
         <div class="header__catalog-wrapper">
             <button class="header__catalog-btn">
-                <span class="material-symbols">view_cozy</span>
-                Каталог товарів
+                <div class="header__catalog-btn-title">
+                    <span class="material-symbols">view_cozy</span>
+                    Каталог товарів
+                </div>
                 <span class="material-symbols">stat_minus_1</span>
             </button>
             <nav class="header__catalog-nav" open="false">

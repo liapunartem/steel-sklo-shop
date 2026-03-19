@@ -1,4 +1,5 @@
 @use "./variables" as vars;
+@use "./mixins";
 
 /* ==== RESET START ==== */
 h1, h2, h3, h4, h5, h6, p, ul, ol {
@@ -65,7 +66,7 @@ body {
 }
 
 .material-symbols {
-    font-family: "Material Symbols Outlined";
+    font-family: "Material Symbols Rounded";
     font-weight: normal;
     font-style: normal;
     font-size: 2.4rem;
@@ -114,40 +115,7 @@ h1 {
 }
 
 .button, .btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 40px;
-    border-radius: 6px;
-    font-size: 1.8rem;
-    font-weight: 400;
-    transition: background 0.2s ease;
-    
-    color: vars.$color-white;
-    background: vars.$color-accent;
-
-    &:hover {
-        background: #0089ab;
-        border-color: #0089ab;
-    }
-
-    @media (max-width: vars.$bp-to-mobile) {
-        height: 30px;
-        font-size: 1.4rem;
-        border-radius: 3px;
-    }
-
-    &--alt {
-        color: vars.$color-accent;
-        background: vars.$color-white;
-        border: solid vars.$color-accent 1px;
-
-        &:hover {
-            color: vars.$color-white;
-            background: vars.$color-accent;
-        }
-    }
+    @include mixins.button;
 }
 
 .catalog-grid {

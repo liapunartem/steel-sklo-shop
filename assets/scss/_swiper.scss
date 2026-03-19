@@ -25,6 +25,8 @@
     z-index: 1;
     width: 3.2rem;
     height: 3.2rem;
+    min-height: auto;
+    padding: 0;
     border-radius: 100%;
     cursor: pointer;
 
@@ -34,8 +36,15 @@
         pointer-events: none;
     }
 
-    &--next { right: 20px; }
-    &--prev { left: 20px; }
+    &--prev {
+        left: 20px;
+        padding-right: 2px;
+    }
+
+    &--next {
+        right: 20px;
+        padding-left: 2px;
+    }
 }
 
 .swiper-slide {
@@ -57,4 +66,33 @@
     height: 500px;
     overflow: hidden;
     border-radius: 10px;
+
+    @media (max-width: vars.$bp-to-tablet) {
+        .slider-button {
+            top: auto;
+            bottom: 26px;
+        }
+    }
+}
+
+.product-carousel {
+    
+    .slider-button {
+        @media (max-width: vars.$bp-to-tablet) {
+            display: none;
+        }
+    }
+
+    .swiper-pagination {
+        display: none;
+        position: static;
+        
+        @media (max-width: vars.$bp-to-tablet) {
+            display: block;
+        }
+
+        &-bullet-active {
+            background: vars.$color-accent;
+        }
+    }
 }

@@ -2,6 +2,20 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
+ * Displays the logo
+ * 
+ * @param string $class CSS Class for logo
+ */
+function steel_logo( $class ) {
+    ?>  
+        <a class="<?php echo $class ?>" href="<?php echo esc_url( home_url() ); ?>">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo.png" 
+                alt="Steel Sklo Shop">
+        </a>
+    <?php
+}
+
+/**
  * Displays breadcrumbs
  */
 function steel_breadcrumbs() {
@@ -186,22 +200,19 @@ function steel_dropdown_catalog() {
         <?php foreach ( $catalog_data as $item ) : ?>
             <li class="dropdown-catalog__item">
 
-                <div class="dropdown-catalog__link">
-                    <a href="<?php echo esc_html( $item['link'] ); ?>">
-                        <span class="dropdown-catalog__title"><?php echo esc_html( $item['name'] ); ?></span>
-                    </a>
-                    <span class="dropdown-catalog__icon"></span>
-                </div>
+                <a href="<?php echo esc_html( $item['link'] ); ?>" class="dropdown-catalog__link">
+                    <span class="dropdown-catalog__title"><?php echo esc_html( $item['name'] ); ?></span>
+                    <span class="material-symbols">keyboard_arrow_right</span>
+                </a>
+                <!-- <span class="dropdown-catalog__icon"></span> -->
 
                 <?php if ( ! empty( $item['subs'] ) ) : ?>
                     <ul class="dropdown-catalog__sublist">
                         <?php foreach ( $item['subs'] as $sub ) : ?>
                             <li class="dropdown-catalog__subitem">
-                                <div class="dropdown-catalog__link">
-                                    <a href="<?php echo esc_url( get_term_link( $sub ) ); ?>">
-                                        <span class="dropdown-catalog__title"><?php echo esc_html( $sub->name ); ?></span>
-                                    </a>
-                                </div>
+                                <a href="<?php echo esc_url( get_term_link( $sub ) ); ?>" class="dropdown-catalog__link">
+                                    <span class="dropdown-catalog__title"><?php echo esc_html( $sub->name ); ?></span>
+                                </a>
                             </li>
                         <?php endforeach; ?>
                     </ul>
@@ -260,7 +271,9 @@ function steel_product_carousel( $ids = [], $more_text = null, $more_link = null
             <?php endif; ?>
 
         </ul>
-        <!-- Стрілки -->
+        <!-- Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Arrows -->
         <?php steel_slider_buttons() ?>
     </div>
 
@@ -285,11 +298,10 @@ function steel_hero_slider() {
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/hero-3.webp" alt="Slide 3">
                     </div>
                 </div>
-                <!-- Пагінація -->
+                <!-- Pagination -->
                 <div class="swiper-pagination"></div>
-                <!-- Стрілки -->
+                <!-- Arrows -->
                 <?php steel_slider_buttons() ?>
-                
         </div>
     <?php
 }
@@ -299,11 +311,11 @@ function steel_hero_slider() {
  */
 function steel_slider_buttons() {
     ?>
-        <div class="btn btn--alt slider-button slider-button--next">
-            <div class="material-symbols">arrow_right_alt</div>
-        </div>
         <div class="btn btn--alt slider-button slider-button--prev">
-            <div class="material-symbols">arrow_left_alt</div>
+            <div class="material-symbols">keyboard_arrow_left</div>
+        </div>
+        <div class="btn btn--alt slider-button slider-button--next">
+            <div class="material-symbols">keyboard_arrow_right</div>
         </div>
     <?php
 }

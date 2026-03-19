@@ -2,18 +2,6 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Displays the footer logo
- */
-function steel_footer_logo() {
-    ?>  
-        <a class="footer-logo" href="<?php echo esc_url( home_url() ); ?>">
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo.png" 
-                alt="Steel Sklo Shop">
-        </a>
-    <?php
-}
-
-/**
  * Displays the footer menu
  */
 function steel_footer_menu() {
@@ -21,7 +9,7 @@ function steel_footer_menu() {
         wp_nav_menu( [
             'theme_location' => 'footer',
             'container'      => true,
-            'menu_class'     => 'footer-menu',
+            'menu_class'     => 'footer__menu',
             'fallback_cb'    => '__return_false',
         ] );
     ?></nav><?php
@@ -30,8 +18,8 @@ function steel_footer_menu() {
 /**
  * Displays main categories in the footer
  */
-function steel_footer_main_categories() {
-    ?><ul class="footer-categories"><?php
+function steel_footer_catalog() {
+    ?><ul class="footer__categories"><?php
     wp_list_categories([
         'taxonomy'     => 'product_cat',
         'title_li'     => '',
@@ -47,12 +35,12 @@ function steel_footer_main_categories() {
  */
 function steel_footer_address() {
     ?>
-        <div class="contact-elem">
-            <div class="contact-title">
-                <span class="contact-icon material-symbols">location_on</span>
+        <div class="footer__contact-item">
+            <div class="footer__contact-title">
+                <span class="footer__contact-icon material-symbols">location_on</span>
                 Адреса магазину
             </div>
-            м. Київ, м. Позняки, пр-т Петра Григоренка, 39 В
+            <span class="footer__contact-text">м. Київ, м. Позняки, пр-т Петра Григоренка, 39 В</span>
         </div>
     <?php
 }
@@ -62,12 +50,12 @@ function steel_footer_address() {
  */
 function steel_footer_emails() {
     ?>
-        <div class="contact-elem">
-            <div class="contact-title">
-                <span class="contact-icon material-symbols">mail</span>
+        <div class="footer__contact-item">
+            <div class="footer__contact-title">
+                <span class="footer__contact-icon material-symbols">mail</span>
                 Email
             </div>
-            info@qwe.com.ua
+            <span class="footer__contact-text">info@qwe.com.ua</span>
         </div>
     <?php
 }
@@ -77,14 +65,16 @@ function steel_footer_emails() {
  */
 function steel_footer_phone_numbers() {
     ?>
-        <div class="contact-elem">
-            <div class="contact-title">
-                <span class="contact-icon material-symbols">call</span>
+        <div class="footer__contact-item">
+            <div class="footer__contact-title">
+                <span class="footer__contact-icon material-symbols">call</span>
                 Ззв'язатись
             </div>
-            +380xxxxxxxxxx
-            +380xxxxxxxxxx
-            +380xxxxxxxxxx
+            <span class="footer__contact-text">
+                +380xxxxxxxxxx
+                +380xxxxxxxxxx
+                +380xxxxxxxxxx
+            </span>
         </div>
     <?php
 }
@@ -94,14 +84,16 @@ function steel_footer_phone_numbers() {
  */
 function steel_footer_work_schedule() {
     ?>
-        <div class="contact-elem">
-            <div class="contact-title">
-                <span class="contact-icon material-symbols">schedule</span>
+        <div class="footer__contact-item">
+            <div class="footer__contact-title">
+                <span class="footer__contact-icon material-symbols">schedule</span>
                 Графік роботи
             </div>
-            Пн-Пт: 10.00-18.00 <br>
-            Сб: 11.00-17.00 <br>
-            Вс: выходной
+            <span class="footer__contact-text">
+                Пн-Пт: 10.00-18.00 <br>
+                Сб: 11.00-17.00 <br>
+                Вс: выходной
+            </span>
         </div>
     <?php
 }

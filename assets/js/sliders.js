@@ -24,6 +24,10 @@ const productSlider = new Swiper(".product-carousel", {
     slidesPerView: 4.2,
     spaceBetween: 20,
     loop: false, // вимкнено
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
     navigation: {
         nextEl: '.slider-button--next',
         prevEl: '.slider-button--prev',
